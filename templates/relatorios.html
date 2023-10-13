@@ -6,6 +6,74 @@
     <title>Relatorios</title>
 </head>
 <body>
-<h1>Relatorios de Refeições</h1>
+<form action="relatorios" nethod="post">
+    <fieldset>
+        <legend>Pesquisa de Refeições</legend>
+        <table>
+            <tr>
+                <td>Usuario:</td>
+                <td><input type = "text" name = "usuarios" value = "Todos os Usuarios" size = "40"></td>
+                <td>
+                    <button type = "submit" formtarget="_blank" value = "pusuario" name = "pusuario"/>Pesquisar</button>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Tipo de Refeição</td>
+                <td><input type="text" name = "TipoRef" value="Todos os tipos de refeições" size = "40"></td>
+                <td>
+                    <button type="submit" formtarget="_blank" value = "tiporef" name="tiporef"/>Pesquisar</button>
+
+                </td>
+            </tr>
+             <tr>
+                <td>Data Inicio</td>
+                <td><input type="date" name = "datainicio" value="Data início" size = "40"></td>
+
+            </tr>
+             <tr>
+                <td>Data Termino</td>
+                <td><input type="date" name = "datatermino" value="Data Termino" size = "40"></td>
+
+            </tr>
+        </table>
+    </fieldset>
+    <button type="submit" value="voltar" name="voltar">Voltar</button>
+    <button type="submit" value="consultar" name="consultar">Consultar</button>
+</form>
+<form action="relatorios" method="post">
+    <h2>Acompanhamentos Refeições</h2>
+    <table width="100%" border="1">
+        <colgroup>
+            <col width = '10%'>
+            <col width = '10%'>
+            <col width = '10%'>
+            <col width = '10%'>
+            <col width = '10%'>
+        </colgroup>
+        <thead>
+        <tr>
+            <td><b>Nome:</b></td>
+            <td><b>Tipo Refeição:</b></td>
+            <td><b>Data:</b></td>
+            <td><b>Refeitorio:</b></td>
+            <td><b>Valor:</b></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% for i in consulta %}
+
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <button type="submit" value="voltar" name="voltar">Exportar</button>
+    </table>
+</form>
 </body>
 </html>
