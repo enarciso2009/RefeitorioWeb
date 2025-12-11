@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <meta charset="UTF-8">
+    <title>Refeições</title>
+</head>
+<body>
+<h1>Cadastro de Refeições</h1>
+<form action="resultado" method="post">
+<fieldset>
+        <legend>Cadastro de Refeições</legend>
+        <table>
+            <tr>
+                <td>Codigo:</td>
+                <td><input type="text" name="codigo" size="10"></td>
+            </tr>
+            <tr>
+                <td>Refeição:</td>
+                <td><input type="text" name="nome" size="40"></td>
+            </tr>
+            <tr>
+                <td>Valor:</td>
+                <td><input type="text" name="valor" size="40"></td>
+            </tr>
+            <tr>
+                <td>Data:</td>
+                <td><input type="date" name="date" size="40"></td>
+            </tr>
+            <tr>
+                <td>Hora Inicio:</td>
+                <td><input type="time" name="hinicio" size="40"></td>
+            </tr>
+            <tr>
+                <td>Hora Termino:</td>
+                <td><input type="time" name="htermino" size="40"></td>
+            </tr>
+        </table>
+    </fieldset>
+    </br>
+    <button type="submit" value="principal" name="voltar">Voltar</button>
+    <button type="submit" value="incluir" name="incluir">Incluir</button>
+    <button type="submit" value="Alterar" name="alterar">Alterar</button>
+    <button type="submit" value="excluir" name="excluir">Excluir</button>
+
+
+</form>
+<h2>Refeições Cadastradas</h2>
+<table width="100%" border="1">
+    <colgroup>
+        <col width="10%">
+        <col width="10%">
+        <col width="10%">
+        <col width="10%">
+        <col width="20%">
+        <col width="20%">
+   </colgroup>
+   <thead>
+   <tr>
+       <td><b>Codigo:</b></td>
+       <td><b>Refeição:</b></td>
+       <td><b>Valor:</b></td>
+       <td><b>Data:</b></td>
+       <td><b>Hora Inicio:</b></td>
+       <td><b>Hora Termino:</b></td>
+   </tr>
+   </thead>
+    <tbody>
+    <tr>
+        {% for i in resultado %}
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
